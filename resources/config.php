@@ -5,7 +5,6 @@ include_once(__DIR__.'/../vendor/autoload.php');
 $PRISMIC_URL = "https://your-repo-name.prismic.io/api";
 $PRISMIC_TOKEN = null;
 
-defined("LIBRARIES_PATH") or define("LIBRARIES_PATH", realpath(dirname(__FILE__) . '/libraries'));
 defined("TEMPLATES_PATH") or define("TEMPLATES_PATH", realpath(dirname(__FILE__) . '/templates'));
 
 class Routes
@@ -27,59 +26,16 @@ class Routes
     $parameters = array();
     $queryString = http_build_query($parameters);
 
-    return Routes::baseUrl() . '/index.php?' . $queryString;
-  }
-
-  public static function detail($id, $slug)
-  {
-    $parameters = array(
-      "id" => $id,
-      "slug" => $slug
-    );
-    if (isset($maybeRef)) {
-      $parameters['ref'] = $maybeRef;
-    }
-    $queryString = http_build_query($parameters);
-
-    return Routes::baseUrl() . '/detail.php?' . $queryString;
-  }
-
-  public static function search()
-  {
-    $parameters = array();
-    $queryString = http_build_query($parameters);
-
-    return Routes::baseUrl() . '/search.php?' . $queryString;
-  }
-
-  public static function signin()
-  {
-    return Routes::baseUrl() . '/signin.php';
-  }
-
-  public static function authCallback($maybeCode=null, $maybeRedirectUri=null)
-  {
-    $parameters = array();
-    if (isset($maybeCode)) {
-      $parameters['code'] = $maybeCode;
-    }
-    if (isset($maybeRedirectUri)) {
-      $parameters['redirect_uri'] = $maybeRedirectUri;
-    }
-    $queryString = http_build_query($parameters);
-
-    return Routes::baseUrl() . '/oauthCallback.php?' .$queryString;
-  }
-
-  public static function signout()
-  {
-    return Routes::baseUrl() . '/signout.php';
+    if ($queryString == null)
+      return Routes::baseUrl();
+    else
+      return Routes::baseUrl() . '/index.php?' . $queryString;
   }
 }
 
 class LinkResolver extends \Prismic\LinkResolver {
   public function resolve($link) {
-    return Routes::detail($link->getId(), $link->getSlug());
+    return Routes::index();
   }
 };
 $linkResolver = new LinkResolver();

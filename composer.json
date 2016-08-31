@@ -1,6 +1,6 @@
 {
-    "name": "prismicio/php-plain-starter",
-    "description": "Starter project for plain PHP – Works with any prismic.io repository",
+    "name": "prismicio/php-quickstart",
+    "description": "Quickstart project for plain PHP – Works with any prismic.io repository",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -9,6 +9,6 @@
         }
     ],
     "require": {
-        "prismic/php-sdk": "1.7.0"
+        "prismic/php-sdk": "2.0.3"
     }
 }
