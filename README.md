@@ -16,7 +16,7 @@ Change the ```https://your-repo-name.prismic.io/api``` API endpoint in the `reso
 
 #### Get started with prismic.io
 
-You can [visit the docs](https://prismic.io/docs#?lang=php) to find out how to get started with prismic.io.
+You can view the [Quickstart project page](https://prismic.io/quickstart#?lang=php) or [visit the docs](https://prismic.io/docs#?lang=php) to find out how to get started with prismic.io.
 
 #### Understand the PHP development kit
 
