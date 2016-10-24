@@ -1,5 +1,12 @@
-<!DOCTYPE html>
+<?php
 
+if (!isset($title)) {
+  $title = SITE_TITLE;
+}
+
+?>
+
+<!DOCTYPE html>
 <html>
   <head>
     <meta content="text/html; Charset=UTF-8" http-equiv="Content-Type" />
@@ -13,7 +20,7 @@
     <? /* Required for previews and experiments */ ?>
     <script>
       window.prismic = {
-        endpoint: '<?= $PRISMIC_URL ?>'
+        endpoint: '<?= PRISMIC_URL ?>'
       };
     </script>
     <script src="//static.cdn.prismic.io/prismic.js"></script>
