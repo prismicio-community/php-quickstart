@@ -19,7 +19,8 @@ $config = ['settings' => [
   'prismic.url'    => PRISMIC_URL,
   'prismic.token'  => PRISMIC_TOKEN,
   'site.title'     => SITE_TITLE,
-  'site.description' => SITE_DESCRIPTION
+  'site.description' => SITE_DESCRIPTION,
+  'displayErrorDetails' => DISPLAY_ERROR_DETAILS,
 ]];
 $app = new \Slim\App($config);
 $prismic = new PrismicHelper($app);

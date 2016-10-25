@@ -15,5 +15,10 @@ define('PRISMIC_TOKEN', null);
 /*
  * Your site metadata
  */
-define('SITE_TITLE', 'prismic.io Website Starter');
-define('SITE_DESCRIPTION', 'This is a Website Starter using prismic.io');
+define('SITE_TITLE', 'Quickstart prismic.io');
+define('SITE_DESCRIPTION', 'This is the PHP Quickstart project for prismic.io');
+
+/*
+ * Set to true to display error details
+ */
+define('DISPLAY_ERROR_DETAILS', true);
