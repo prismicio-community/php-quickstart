@@ -1,7 +1,9 @@
 <?php
 
 $prismic = $WPGLOBAL['prismic'];
-$pageContent = $WPGLOBAL['pageContent'];
+if (isset($WPGLOBAL['pageContent'])) {
+  $pageContent = $WPGLOBAL['pageContent'];
+}
 
 $title = "TODO";
 

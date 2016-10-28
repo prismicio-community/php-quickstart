@@ -21,10 +21,9 @@ require_once 'includes/http.php';
 
 // Index page
 $app->get('/', function ($request, $response) use ($app, $prismic) {
-
-  $pageContent = $prismic->get_api(null);
   
-  render($app, 'page', array('pageContent' => $pageContent));
+  render($app, 'page-original');
+  
 });
 
 // Previews
