@@ -22,7 +22,7 @@ require_once 'includes/http.php';
 // Index page
 $app->get('/', function ($request, $response) use ($app, $prismic) {
   
-  render($app, 'page-original');
+  render($app, 'page');
   
 });
 
