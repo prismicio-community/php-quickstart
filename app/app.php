@@ -26,6 +26,11 @@ $app->get('/', function ($request, $response) use ($app, $prismic) {
   
 });
 
+// Help Page
+$app->get('/help', function ($request, $response) use ($app, $prismic) {
+  render($app, 'help');
+});
+
 // Previews
 $app->get('/preview', function ($request, $response) use ($app, $prismic) {
   $token = $request->getParam('token');
