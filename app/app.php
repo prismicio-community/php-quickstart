@@ -32,7 +32,7 @@ curl_close ($ch);
 // Index page
 $app->get('/', function ($request, $response) use ($app, $prismic) {
   
-  render($app, 'page');
+  return $response->withStatus(302)->withHeader('Location', '/help');
   
 });
 
