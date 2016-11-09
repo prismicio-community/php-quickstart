@@ -21,7 +21,7 @@ require_once 'includes/http.php';
 
 // Index page
 $app->get('/', function ($request, $response) use ($app, $prismic) {
-  return $response->withRedirect('/help');
+  render($app, 'page');
 });
 
 // Help Page
