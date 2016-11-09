@@ -13,7 +13,17 @@
   <div id="prismic-help">
     <header>
       <nav>
-      <a href="#config"><strong>Configure a repository</strong></a>
+      <?php
+      if($WPGLOBAL['isConfigured']) {
+      ?>
+        <a href="<?php echo $WPGLOBAL['repoURL']; ?>"><strong>Go to <?php echo $WPGLOBAL['name']; ?></strong></a>
+      <?php
+      } else {
+      ?>
+        <a href="#config"><strong>Configure a repository</strong></a>
+      <?php
+      }
+      ?>
       <a href="https://prismic.io/docs" class="doc">Documentation<img src="images/open.svg" alt=""/></a>
       </nav>
       <div class="wrapper"><img src="images/rocket.svg" alt=""/>
@@ -35,8 +45,8 @@
       </div>
     </header>
     <section>
-      <p>This is a help page included in your project, it has a few useful links and example snippets to help you getting started. You can access this any time by pointing your browser to /help.</p>
-      <h2>Three more steps:</h2>
+      <p>This is a help page included in your project, it has a few useful links and example snippets to help you getting started. You can access this any time by pointing your browser to <?php echo $WPGLOBAL['host']; ?>/help.</p>
+      <h2><?php if($WPGLOBAL['isConfigured']) echo "Two"; else echo "Three"; ?> more steps:</h2>
       <h3 id="config"><span>1</span>Bootstrap your project</h3>
       <p>If you haven't yet, create a prismic.io content repository. A repository is where your website’s content will live. Simply <a href="https://prismic.io/#create" target="_blank">create one</a> by choosing a repository name and a plan. We’ve got a variety of plans including our favorite, Free!</p>
       <h4>Add the repository URL to your configuration</h4>
