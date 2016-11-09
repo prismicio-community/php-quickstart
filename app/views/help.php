@@ -62,22 +62,28 @@ define("PRISMIC_URL", "https://levi-quickstart-php.prismic.io/api");</code></pre
 // Get page by UID
 $app->get('/page/{uid}', function ($request, $response, $args) use ($app, $prismic) {
 
-        // Retrieve the uid from the url
+        // We store the param uid in a variable
         $uid = $args['uid'];
 
         // Query the API by the uid
         $api = $prismic->get_api();
-        $pageContent = $api->getByUID('page', $uid);
+        // We are using the function to get a document by its uid
+        // pageContent is a document, or null if there is no match
+        $pageContent = $api->getByUID("&lt;your-custom-type-id&gt;", $uid);
 
-        // Render the page
+        // Where 'page' is the name of your php template file (page.php)
         render($app, 'page', array('pageContent' => $pageContent));
 });
 </code></pre>
       </div>
+      <p>
+        To discover all the functions you can use to query your documents go to <a href="https://prismic.io/docs/custom-types#query?lang=javascript" target="_blank">the prismic documentation</a>
+      </p>
       <h3 id="done"><span>3</span>Fill a template</h3>
       <p>Now all that's left to be done is insert your content into the template.<br/>You can get the content using the pageContent object we defined above. Each content field is accessed using the custom type API-ID and the field key defined in the custom type (for example 'page.image').</p>
       <div class="source-code">
         <pre><code>
+&lt;!-- In views/page.pug --&gt;
 &lt;?php
 $prismic = $WPGLOBAL['prismic'];
 $pageContent = $WPGLOBAL['pageContent'];
@@ -86,14 +92,20 @@ $pageContent = $WPGLOBAL['pageContent'];
 &lt;?php include 'header.php'; ?&gt;
 
 &lt;div class="welcome"&gt;
+        &lt;!-- This is how to get an image into your template --&gt;
         &lt;img class="star" src="&lt;?= $pageContent->getImage('page.image')->getUrl() ?&gt;"&gt;
+        &lt;!-- This is how to get a structured text into your template --&gt;
         &lt;?= $pageContent->getStructuredText('page.title')->asHtml($prismic->linkResolver) ?&gt;
+        &lt;!-- This is how to get a text into your template --&gt;
         &lt;?= $pageContent->getStructuredText('page.description')->asHtml($prismic->linkResolver) ?&gt;
 &lt;/div&gt;
 
 &lt;?php include 'footer.php'; ?&gt;
 </code></pre>
       </div>
+      <p>
+        To discover how to get all the field go to <a href="https://prismic.io/docs/fields/structuredtext#?lang=javascript" target="_blank">the prismic documentation</a>
+      </p>
     </section>
   </div>
 </body>
