@@ -12,7 +12,9 @@
 <body>
   <div id="prismic-help">
     <header>
-      <nav><a href="#config"><strong>Configure a repository</strong></a><a href="https://prismic.io/docs" class="doc">Documentation<img src="images/open.svg" alt=""/></a>
+      <nav>
+      <a href="#config"><strong>Configure a repository</strong></a>
+      <a href="https://prismic.io/docs" class="doc">Documentation<img src="images/open.svg" alt=""/></a>
       </nav>
       <div class="wrapper"><img src="images/rocket.svg" alt=""/>
         <h1>High five, you deserve it!</h1>
@@ -72,7 +74,7 @@ $pageContent = $WPGLOBAL['pageContent'];
 ?&gt;
 
 &lt;?php include 'header.php'; ?&gt;
-    
+
 &lt;div class="welcome"&gt;
         &lt;img class="star" src="&lt;?= $pageContent->getImage('page.image')->getUrl() ?&gt;"&gt;
         &lt;?= $pageContent->getStructuredText('page.title')->asHtml($prismic->linkResolver) ?&gt;

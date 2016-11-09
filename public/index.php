@@ -6,12 +6,6 @@ require_once '../app/includes/PrismicHelper.php';
 require_once '../config.php';
 
 
-// If the prismic API url needs to be updated, show a message to go through the quickstart
-if (PRISMIC_URL == 'https://your-repo-name.prismic.io/api') {
-  include '../app/includes/templates/firstrun.php';
-  exit();
-}
-
 // Initialize the Slim & prismic apps
 $composer = json_decode(file_get_contents(__DIR__.'/../composer.json'));
 $config = ['settings' => [
@@ -30,6 +24,20 @@ $WPGLOBAL = array(
   'app' => $app,
   'prismic' => $prismic,
 );
+
+
+function validateOnboarding($app) {
+  $API_ENDPOINT = $app->getContainer()->get('settings')['prismic.url'];
+  $repoEndpoint = str_replace("/api", "", $API_ENDPOINT);
+  $url = $repoEndpoint . '/app/settings/onboarding/run';
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL,$url);
+  curl_setopt($ch, CURLOPT_POST,1);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, array());
+  $result = curl_exec ($ch);
+  curl_close ($ch);
+}
+validateOnboarding($app);
 
 // Launch the app
 require_once __DIR__.'/../app/app.php';
