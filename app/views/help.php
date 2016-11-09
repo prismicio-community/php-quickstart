@@ -16,7 +16,7 @@
       <?php
       if($WPGLOBAL['isConfigured']) {
       ?>
-        <a href="<?php echo $WPGLOBAL['repoURL']; ?>"><strong>Go to <?php echo $WPGLOBAL['name']; ?></strong></a>
+        <a target="_blank" href="<?php echo $WPGLOBAL['repoURL']; ?>"><strong>Go to <?php echo $WPGLOBAL['name']; ?></strong></a>
       <?php
       } else {
       ?>
@@ -24,7 +24,7 @@
       <?php
       }
       ?>
-      <a href="https://prismic.io/docs" class="doc">Documentation<img src="images/open.svg" alt=""/></a>
+      <a target="_blank" href="https://prismic.io/docs" class="doc">Documentation<img src="images/open.svg" alt=""/></a>
       </nav>
       <div class="wrapper"><img src="images/rocket.svg" alt=""/>
         <h1>High five, you deserve it!</h1>

@@ -25,18 +25,19 @@ $WPGLOBAL = array(
   'prismic' => $prismic,
 );
 
-
 function validateOnboarding($app) {
   $API_ENDPOINT = $app->getContainer()->get('settings')['prismic.url'];
   $repoEndpoint = str_replace("/api", "", $API_ENDPOINT);
   $url = $repoEndpoint . '/app/settings/onboarding/run';
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL,$url);
-  curl_setopt($ch, CURLOPT_POST,1);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, array());
-  $result = curl_exec ($ch);
-  curl_close ($ch);
+  $x = curl_init();
+  curl_setopt($x, CURLOPT_URL,$url);
+  curl_setopt($x, CURLOPT_POST,1);
+  curl_setopt($x, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($x, CURLOPT_POSTFIELDS, array());
+  curl_exec($x);
+  curl_close ($x);
 }
+
 validateOnboarding($app);
 
 // Launch the app
