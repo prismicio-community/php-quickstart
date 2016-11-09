@@ -21,9 +21,24 @@ require_once 'includes/http.php';
 
 // Index page
 $app->get('/', function ($request, $response) use ($app, $prismic) {
-  
   render($app, 'page');
-  
+});
+
+// Help Page
+$app->get('/help', function ($request, $response) use ($app, $prismic) {
+  $DEFAULT_ENDPOINT = 'https://your-repo-name.prismic.io/api';
+  $API_ENDPOINT = $app->getContainer()->get('settings')['prismic.url'];
+  preg_match("/^(https?:\/\/([-_a-zA-Z0-9]+)\..+)\/api$/", $API_ENDPOINT, $match);
+  $repoURL = $match[1];
+  $name = $match[2];
+  $host = $request->getUri()->getBaseUrl();
+  $isConfigured = $DEFAULT_ENDPOINT != $API_ENDPOINT;
+  render($app, 'help', array(
+    'isConfigured' => $isConfigured,
+    'repoURL'=> $repoURL,
+    'name'=> $name,
+    'host'=> $host
+  ));
 });
 
 // Previews
