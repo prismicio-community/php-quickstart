@@ -5,7 +5,6 @@ require_once '../app/LinkResolver.php';
 require_once '../app/includes/PrismicHelper.php';
 require_once '../config.php';
 
-
 // Initialize the Slim & prismic apps
 $composer = json_decode(file_get_contents(__DIR__.'/../composer.json'));
 $config = ['settings' => [
@@ -24,21 +23,6 @@ $WPGLOBAL = array(
   'app' => $app,
   'prismic' => $prismic,
 );
-
-function validateOnboarding($app) {
-  $API_ENDPOINT = $app->getContainer()->get('settings')['prismic.url'];
-  $repoEndpoint = str_replace("/api", "", $API_ENDPOINT);
-  $url = $repoEndpoint . '/app/settings/onboarding/run';
-  $x = curl_init();
-  curl_setopt($x, CURLOPT_URL,$url);
-  curl_setopt($x, CURLOPT_POST,1);
-  curl_setopt($x, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($x, CURLOPT_POSTFIELDS, array());
-  curl_exec($x);
-  curl_close ($x);
-}
-
-validateOnboarding($app);
 
 // Launch the app
 require_once __DIR__.'/../app/app.php';
