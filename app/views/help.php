@@ -40,14 +40,16 @@
       <h4>Add the repository URL to your configuration</h4>
       <p>Replace the repository url in your config file with your-repo-name.prismic.io</p>
       <div class="source-code">
-        <pre><code>// In prismic.php
+        <pre><code>// config.php
 define("PRISMIC_URL", "https://levi-quickstart-php.prismic.io/api");</code></pre>
       </div>
       <h3 id="query"><span>2</span>Create a route and retrieve content</h3>
       <p>To add a page to your project, you need to first specify a route. The route contains the URL and performs queries for the needed content.<br/>In the following example we set a "/page/:uid" URL to fetch content of custom type "page" by its UID. The route then calls the "page" template and passes it the retrieved content.</p>
       <div class="source-code">
         <pre><code>
-// Get page by UID
+// app.php
+
+// Get page by uid
 $app->get('/page/{uid}', function ($request, $response, $args) use ($app, $prismic) {
 
         // Retrieve the uid from the url
@@ -63,9 +65,11 @@ $app->get('/page/{uid}', function ($request, $response, $args) use ($app, $prism
 </code></pre>
       </div>
       <h3 id="done"><span>3</span>Fill a template</h3>
-      <p>Now all that's left to be done is insert your content into the template.<br/>You can get the content using the pageContent object we defined above. Each content field is accessed using the custom type API-ID and the field key defined in the custom type (for example 'page.image').</p>
+      <p>Now all that's left to be done is insert your content into the template.<br/>You need create a new file called page.php in the views folder. The name of the file must match the second argument when calling render function.<br/>You can get the content using the pageContent object we defined above. Each content field is accessed using the custom type API-ID and the field key defined in the custom type (for example 'page.image').</p>
       <div class="source-code">
-        <pre><code>
+        <pre><code class="php">
+// page.php
+
 &lt;?php
 $prismic = $WPGLOBAL['prismic'];
 $pageContent = $WPGLOBAL['pageContent'];
