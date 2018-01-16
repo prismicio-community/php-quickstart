@@ -14,7 +14,6 @@
  */
 
 use Prismic\Api;
-use Prismic\LinkResolver;
 use Prismic\Predicates;
 
 require_once 'includes/http.php';
@@ -32,14 +31,12 @@ curl_close ($ch);
 
 // Index page
 $app->get('/', function ($request, $response) use ($app, $prismic) {
-
-  return $response->withStatus(302)->withHeader('Location', '/help');
-
+  return $response->withStatus(302)->withHeader('Location', '/tutorial');
 });
 
-// Help Page
-$app->get('/help', function ($request, $response) use ($app, $prismic) {
-  render($app, 'help');
+// Tutorial Page
+$app->get('/tutorial', function ($request, $response) use ($app, $prismic) {
+  render($app, 'tutorial');
 });
 
 // Previews
