@@ -16,11 +16,11 @@
   <div id="prismic-tutorial">
 
     <header>
-      <nav><a href="#bootstrap"><strong>Configure a repository</strong></a><a href="https://prismic.io/docs" target="_blank" class="doc">Documentation<img src="images/open.svg" alt="Open"></a>
+      <nav><a href="#bootstrap"><strong>Configure a repository</strong></a><a href="https://prismic.io/docs/php/getting-started/with-the-php-starter-kit" target="_blank" class="doc">Documentation<img src="images/open.svg" alt="Open"></a>
       </nav>
       <div class="wrapper"><img src="images/rocket.svg" alt="Rocket">
         <h1>High five, you deserve it!</h1>
-        <p>Grab a well deserved cup of coffee, you're few steps away from creating a page with dynamic content.</p>
+        <p>Grab a well deserved cup of coffee, you're just few steps away from creating a page with dynamic content.</p>
       </div>
       <div class="hero-curve"></div>
       <div class="flip-flap">
@@ -30,7 +30,7 @@
               <li><a href="#bootstrap"><span>1</span>Bootstrap your project<img src="images/arrow.svg" alt="Arrow"></a></li>
               <li><a href="#custom-type"><span>2</span>Create a Custom Type "Page"<img src="images/arrow.svg" alt="Arrow"></a></li>
               <li><a href="#new-page"><span>3</span>Create your first page!<img src="images/arrow.svg" alt="Arrow"></a></li>
-              <li><a href="#code"><span>4</span>Query the API and create page template<img src="images/arrow.svg" alt="Arrow"></a></li>
+              <li><a href="#code"><span>4</span>Query the API and create the page template<img src="images/arrow.svg" alt="Arrow"></a></li>
               <li><a href="#done"><span>5</span>Well done!<img src="images/arrow.svg" alt="Arrow"></a></li>
             </ul>
           </div>
@@ -40,24 +40,24 @@
     </header>
 
     <section>
-      <p>This is a tutorial page included in this PHP Quickstart project, it has a few useful links and example snippets to help you getting started. You can access this page at <a href="http://localhost:8000/tutorial">http://localhost:8000/tutorial</a>.</p>
-      <h2>Follow this steps:</h2>
+      <p>This is a tutorial page included in this PHP Quickstart project, it has a few useful links and example snippets to help you get started. You can access this page at <a href="http://localhost:8000/tutorial">http://localhost:8000/tutorial</a>.</p>
+      <h2>Follow these steps:</h2>
 
       <h3 id="bootstrap"><span>1</span>Bootstrap your project</h3>
       <h4>Create a prismic.io content repository</h4>
       <p>A repository is where your website’s content will live. Simply <a href="https://prismic.io/#create" target="_blank">create one</a> choosing a repository name and a plan. We’ve got a variety of plans including our favorite, Free!</p>
       <h4>Configure your project</h4>
-      <p>Open config.php and assign to PRISMIC_URL constant the corresponding API endpoint pointing to your prismic.io repository:</p>
+      <p>Open config.php and assign the API endpoint for your prismic.io repository to the PRISMIC_URL constant:</p>
       <div class="source-code">
         <pre><code>// In config.php
-define("PRISMIC_URL", "https://your-repository-name.prismic.io/api/v2");
+define("PRISMIC_URL", "https://your-repo-name.prismic.io/api/v2");
 </code></pre>
       </div>
-      <p>Let's see how to create a page in your website filled with content retrieving from prismic.io!</p>
+      <p>Next let's see how to create a page in your website filled with content retrieved from prismic.io!</p>
 
       <h3 id="custom-type"><span>2</span>Create a Custom Type "Page"</h3>
       <p>We will create a page containing a title, a paragraph and an image. Let's create a Custom Type in prismic.io with the corresponding fields. We'll add an additional UID (unique identifier) field for querying the page.</p>
-      <p>Go to the repository backend you've just created (at https://your-repository-name.prismic.io). Then navigate to the <em>"Custom Types"</em> section (icon on the left navbar) and create a new Repeatable Type, for this tutorial let's name it "Page".</p>
+      <p>Go to the repository backend you've just created (at https://your-repo-name.prismic.io). Then navigate to the <em>"Custom Types"</em> section (icon on the left navbar) and create a new Repeatable Type, for this tutorial let's name it "Page". Make sure that the system automatically assigns this an API ID of "page".</p>
       <p>Once the "Page" Custom Type is created, we have to define how we want to model it, that is to say a document containing a UID, a title, a paragraph and an image. Click on <em>"JSON editor"</em> (right sidebar) and paste the following JSON data into the Custom Type JSON editor. When you're done, hit <em>"Save"</em>.</p>
       <div class="source-code">
         <pre><code>{
@@ -96,10 +96,14 @@ define("PRISMIC_URL", "https://your-repository-name.prismic.io/api/v2");
       <p>Fill the corresponding fields. Note the value you filled in the UID field, because it will be a part of the page URL, for that purpose let's type "<strong>quickstart</strong>".</p>
       <p>When you're done, hit <em>"Save"</em> then <em>"Publish"</em>.</p>
 
-      <h3 id="code"><span>4</span>Query the API and create page template</h3>
+      <h3 id="code"><span>4</span>Query the API and create the page template</h3>
       <h4>Query the API for your "quickstart" page</h4>
       <p>Now that you've created your "quickstart" page in your prismic.io repository, go back to your local code. Let's make an API call to retrieve page content. For that, we will use the specified UID.</p>
-      <p>Once we've retrieved the page, we render the template providing it with its content.</p>
+      <p>
+        Once we've retrieved the page, we render the template providing it with its content.
+        <br>
+        Add the following URL route to your app/app.php file:
+      </p>
       <div class="source-code">
         <pre><code>// In app/app.php
  

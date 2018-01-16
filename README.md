@@ -12,7 +12,7 @@ If you haven't, [install Composer](https://getcomposer.org/doc/00-intro.md), and
 
 ### Configure the starter project
 
-Change the ```https://your-repository-name.prismic.io/api/v2``` PRISMIC_URL in the `config.php` file to your repository's endpoint.
+Change the ```https://your-repo-name.prismic.io/api/v2``` PRISMIC_URL in the `config.php` file to your repository's endpoint.
 
 ### Go through the Quickstart instructions
 
