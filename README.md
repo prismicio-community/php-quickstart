@@ -20,8 +20,18 @@ Learn how to get this project connected to prismic.io by going through the [quic
 
 ### Learn more about prismic.io
 
-You can [visit the docs](https://prismic.io/docs#?lang=php) to learn more about how to use prismic.io.
+You can [visit the docs](https://prismic.io/docs/php/getting-started/with-the-php-starter-kit) to learn more about how to use prismic.io.
 
 ### Understand the PHP development kit
 
 You'll find more information about how to use the development kit included in this starter project, by reading [its README file](https://github.com/prismicio/php-kit).
+
+### License
+
+This software is licensed under the Apache 2 license, quoted below.
+
+Copyright 2018 Prismic.io (https://prismic.io).
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
