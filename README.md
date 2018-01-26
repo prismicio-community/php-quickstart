@@ -14,9 +14,13 @@ If you haven't, [install Composer](https://getcomposer.org/doc/00-intro.md), and
 
 Change the ```https://your-repo-name.prismic.io/api/v2``` PRISMIC_URL in the `config.php` file to your repository's endpoint.
 
-### Go through the Quickstart instructions
+### Launch the local server
 
-Learn how to get this project connected to prismic.io by going through the [quickstart instructions](https://prismic.io/quickstart#?lang=php).
+Run the command ```./serve.sh``` and then you can view the website at http://localhost:8000.
+
+### Go through the Quickstart tutorial
+
+Learn how to get this project connected to prismic.io by going through the [Quickstart tutorial](https://prismic.io/quickstart#?lang=php).
 
 ### Learn more about prismic.io
 
