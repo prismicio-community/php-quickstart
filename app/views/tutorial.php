@@ -102,7 +102,7 @@ define("PRISMIC_URL", "https://your-repo-name.prismic.io/api/v2");
       <p>
         Once we've retrieved the page, we render the template providing it with its content.
         <br>
-        Add the following URL route to your app/app.php file:
+        Add the following route to your app/app.php file:
       </p>
       <div class="source-code">
         <pre><code>// In app/app.php
