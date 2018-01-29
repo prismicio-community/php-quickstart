@@ -121,7 +121,7 @@ $app->get('/page/{uid}', function ($request, $response, $args) use ($app, $prism
       <h4>Create webpage with the retrieving content</h4>
       <p>Now all that's left to be done is to output on a webpage the content we fetched from the API. Create a new template file named "page.php" inside the views folder. Here's an example that'll display a webpage "Page" with its title, description and image:</p>
       <div class="source-code">
-        <pre><code>// Create file app/views/page.php
+        <pre><code>&lt;!-- Create file app/views/page.php --&gt;
 
 &lt;?php
 use Prismic\Dom\RichText;

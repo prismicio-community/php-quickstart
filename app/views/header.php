@@ -18,7 +18,6 @@ if (!isset($description)) {
     <link href="/stylesheets/reset.css" rel="stylesheet">
     <link href="/stylesheets/style.css" rel="stylesheet">
     <link href="/images/punch.png" rel="icon" type="image/png">
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <? /* Required for previews and experiments */ ?>
     <script>
       window.prismic = {

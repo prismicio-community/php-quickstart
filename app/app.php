@@ -29,6 +29,14 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $result=curl_exec ($ch);
 curl_close ($ch);
 
+// Previews
+$app->get('/preview', function ($request, $response) use ($app, $prismic) {
+  $token = $request->getParam('token');
+  $url = $prismic->get_api()->previewSession($token, $prismic->linkResolver, '/');
+  setcookie(Prismic\PREVIEW_COOKIE, $token, time() + 1800, '/', null, false, false);
+  return $response->withStatus(302)->withHeader('Location', $url);
+});
+
 // Index page
 $app->get('/', function ($request, $response) use ($app, $prismic) {
   return $response->withStatus(302)->withHeader('Location', '/tutorial');
@@ -37,12 +45,4 @@ $app->get('/', function ($request, $response) use ($app, $prismic) {
 // Tutorial Page
 $app->get('/tutorial', function ($request, $response) use ($app, $prismic) {
   render($app, 'tutorial');
-});
-
-// Previews
-$app->get('/preview', function ($request, $response) use ($app, $prismic) {
-  $token = $request->getParam('token');
-  $url = $prismic->get_api()->previewSession($token, $prismic->linkResolver, '/');
-  setcookie(Prismic\PREVIEW_COOKIE, $token, time() + 1800, '/', null, false, false);
-  return $response->withStatus(302)->withHeader('Location', $url);
 });
