@@ -11,22 +11,14 @@ use Prismic\LinkResolver;
  */
 class PrismicLinkResolver extends LinkResolver
 {
-  private $prismic;
-
-  public function __construct($prismic)
-  {
-    $this->prismic = $prismic;
-  }
-
   public function resolve($link)
   {
-    // Example link resolver for custom type with API ID of 'example-page'
-    if ($link->getType() == 'example-page') {
-      return '/example-page/' . $link->getUid();
+    // Example link resolver for custom type with API ID of 'page'
+    if ($link->type === 'page') {
+      return '/page/' . $link->uid;
     }
     
     // Default case returns the homepage
     return '/';
   }
 }
-
