@@ -142,7 +142,7 @@ $document = $WPGLOBAL['document'];
 &lt;?php include_once 'footer.php'; ?&gt;
 </code></pre>
       </div>
-      <p>In you browser go to <a href="http://localhost:8000/page/quickstart">http://localhost:8000/page/quickstart</a> and you're done! You've officially created a page that pulls content from prismic.io.</p>
+      <p>In your browser go to <a href="http://localhost:8000/page/quickstart">http://localhost:8000/page/quickstart</a> and you're done! You've officially created a page that pulls content from prismic.io.</p>
       <p>Obviously, since this approach is based on API, you're completely free to choose a different framework or template engine. It's all up to you!</p>
 
       <h3 id="done"><span>5</span>Well done!</h3>
