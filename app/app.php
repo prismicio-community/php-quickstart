@@ -18,31 +18,24 @@ use Prismic\Predicates;
 
 require_once 'includes/http.php';
 
-$apiEndpoint = $WPGLOBAL['app']->getContainer()->get('settings')['prismic.url'];
-$repoEndpoint = str_replace("/api", "", $apiEndpoint);
-$url = $repoEndpoint . '/app/settings/onboarding/run';
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,$url);
-curl_setopt($ch, CURLOPT_POST,1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, array("language=php&framework=slim"));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$result=curl_exec ($ch);
-curl_close ($ch);
+/*
+ *  --[ INSERT YOUR ROUTES HERE ]--
+ */
 
 // Previews
 $app->get('/preview', function ($request, $response) use ($app, $prismic) {
-  $token = $request->getParam('token');
-  $url = $prismic->get_api()->previewSession($token, $prismic->linkResolver, '/');
-  setcookie(Prismic\PREVIEW_COOKIE, $token, time() + 1800, '/', null, false, false);
-  return $response->withStatus(302)->withHeader('Location', $url);
+    $token = $request->getParam('token');
+    $url = $prismic->get_api()->previewSession($token, $prismic->linkResolver, '/');
+    setcookie(Prismic\PREVIEW_COOKIE, $token, time() + 1800, '/', null, false, false);
+    return $response->withStatus(302)->withHeader('Location', $url);
 });
 
 // Index page
 $app->get('/', function ($request, $response) use ($app, $prismic) {
-  return $response->withStatus(302)->withHeader('Location', '/tutorial');
+    render($app, 'home');
 });
 
-// Tutorial Page
-$app->get('/tutorial', function ($request, $response) use ($app, $prismic) {
-  render($app, 'tutorial');
+// 404 Page (Keep at the bottom of the routes)
+$app->get('/{id}', function ($request, $response) use ($app, $prismic) {
+    render($app, '404');
 });
