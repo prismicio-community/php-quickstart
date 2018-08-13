@@ -53,7 +53,7 @@
       <p>Replace the repository url in your config file with your-repo-name.prismic.io</p>
       <div class="source-code">
         <pre><code>// In prismic.php
-define("PRISMIC_URL", "https://levi-quickstart-php.prismic.io/api");</code></pre>
+define("PRISMIC_URL", "https://your-repo-name.prismic.io/api");</code></pre>
       </div>
       <h3 id="query"><span>2</span>Create a route and retrieve content</h3>
       <p>To add a page to your project, you need to first specify a route. The route contains the URL and performs queries for the needed content.<br/>In the following example we set a "/page/:uid" URL to fetch content of custom type "page" by its UID. The route then calls the "page" template and passes it the retrieved content.</p>
