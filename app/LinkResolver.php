@@ -11,7 +11,7 @@ use Prismic\LinkResolver;
  */
 class PrismicLinkResolver extends LinkResolver
 {
-    public function resolve($link)
+    public function resolve($link) :? string
     {
         // Example link resolver for custom type with API ID of 'page'
         if ($link->type === 'blog_page') {
