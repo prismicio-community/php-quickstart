@@ -3,7 +3,7 @@
   "version": "2.0",
   "require": {
     "php": ">=7.1",
-    "prismic/php-sdk": "^5.0.0",
+    "prismic/php-sdk": "^5.0.1",
     "slim/slim": "^3.10"
   }
 }
